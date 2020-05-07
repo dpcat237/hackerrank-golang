@@ -3,8 +3,8 @@
   <img width="400px" src="https://blog.hackerrank.com/wp-content/uploads/2017/04/logo_HRwordmark2700x670_2-1.png" />
   </a>
 </div>
-This repository contains challenges of site [Hackerrank](https://www.hackerrank.com/domains/ai/ai-introduction).
 
+This repository contains challenges of site [HackerRank](https://www.hackerrank.com).
 
 
 ### Artificial Intelligence
