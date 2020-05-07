@@ -3,18 +3,21 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math"
 	"os"
 	"strconv"
 	"strings"
 )
 
 type Bot struct {
-	action       string
-	line         int32
-	position     int32
-	positionated bool
-	priority     string
-	total        int32
+	action   string
+	line     int32
+	position int32
+}
+
+type Dust struct {
+	line     int32
+	position int32
 }
 
 func main() {
@@ -27,6 +30,7 @@ func cleanBot() {
 	mDust := make(map[int32]map[int32]bool)
 
 	line := int32(0)
+	sline := int32(0)
 	for {
 		inputBt, _, err := in.ReadLine()
 		input := string(inputBt)
@@ -34,165 +38,100 @@ func cleanBot() {
 			break
 		}
 
-		if line == 0 && !b.positionated {
-			b.positionate(input)
+		if sline == 0 {
+			b.setPosition(input)
+			sline++
 			continue
 		}
 
-		b.setTotal(input)
-		mDust[line] = findDust(input)
-
-		if b.line == line-1 && len(mDust[line-1]) > 0 {
-			b.cleanLine(mDust)
-			break
+		lDust := findDust(input)
+		if len(lDust) > 0 {
+			mDust[line] = lDust
 		}
-
 		line++
 	}
 
-	b.cleanLine(mDust)
-	if b.action == "" {
-		b.changeLine(mDust)
-	}
-	if b.action == "" {
+	if len(mDust) == 0 {
 		return
 	}
 
-	_, err := fmt.Fprint(os.Stdout, b.action)
-	if err != nil {
+	if b.isCleanNow(mDust) {
+		b.act()
 		return
 	}
+
+	nextDust := b.getNextDust(mDust)
+	if (Dust{}) == nextDust {
+		return
+	}
+
+	b.moveToDust(nextDust)
+	b.act()
 }
 
-func (b *Bot) changeLine(mDust map[int32]map[int32]bool) {
-	if b.line == 0 {
-		if b.isDustThere(1, mDust) {
-			b.action = "DOWN"
-		}
+func (b *Bot) moveToDust(d Dust) {
+	if b.line != 0 && d.line < b.line {
+		b.action = "UP"
 		return
 	}
-
-	if b.line == (b.total - 1) {
-		if b.isDustThere(b.total-2, mDust) {
-			b.action = "UP"
-		}
-		return
-	}
-
-	if b.line < (b.total / 2) {
-		if b.isDustThere(b.line-1, mDust) {
-			b.action = "UP"
-			return
-		}
-		if b.isDustThere(b.line+1, mDust) {
-			b.action = "DOWN"
-		}
-		return
-	}
-
-	if b.isDustThere(b.line+1, mDust) {
+	if d.line > b.line {
 		b.action = "DOWN"
 		return
 	}
-	if b.isDustThere(b.line-1, mDust) {
-		b.action = "UP"
-	}
-}
-
-func (b *Bot) checkDustInNextLine(mDust map[int32]map[int32]bool) {
-	if b.priority == "DOWN" && b.line < b.total-1 {
-		if _, ok := mDust[b.line+1][b.position]; ok {
-			b.action = "DOWN"
-		}
-	}
-	if b.line > 0 {
-		if _, ok := mDust[b.line-1][b.position]; ok {
-			b.action = "UP"
-		}
-	}
-}
-
-func (b *Bot) cleanLine(mDust map[int32]map[int32]bool) {
-	ds := mDust[b.line]
-	if len(ds) == 0 {
-		return
-	}
-	if _, ok := ds[b.position]; ok {
-		b.action = "CLEAN"
-		return
-	}
-
-	b.checkDustInNextLine(mDust)
-	if b.action != "" {
-		return
-	}
-
-	left := b.getSteps(b.position-1, 1, ds)
-	right := b.getSteps(b.position+1, 1, ds)
-
-	if left == 0 {
-		b.action = "RIGHT"
-		return
-	}
-
-	if right == 0 {
-		b.action = "LEFT"
-		return
-	}
-
-	if left == right {
-		b.action = "LEFT"
-		return
-	}
-
-	if left < right {
+	if d.position < b.position {
 		b.action = "LEFT"
 		return
 	}
 	b.action = "RIGHT"
 }
 
-func findDust(line string) map[int32]bool {
-	ds := make(map[int32]bool)
-	for i, p := range line {
-		if p == 100 {
-			ds[int32(i)] = true
+func (b Bot) act() {
+	_, err := fmt.Fprint(os.Stdout, b.action)
+	if err != nil {
+		return
+	}
+}
+
+func (b Bot) calculateEuclidean(dl, dp int32) int32 {
+	return int32(math.Pow(float64(dl-b.line), 2) + math.Pow(float64(dp-b.position), 2))
+}
+
+func (b Bot) getNextDust(mDust map[int32]map[int32]bool) Dust {
+	var dust Dust
+	dist := int32(0)
+	for l, lDust := range mDust {
+		for p, _ := range lDust {
+			dDist := b.calculateEuclidean(l, p)
+			if dist == 0 {
+				dist = dDist
+				dust.set(l, p)
+				continue
+			}
+			if dDist < dist {
+				dist = dDist
+				dust.set(l, p)
+			}
 		}
 	}
-	return ds
+	return dust
 }
 
-func (b *Bot) getSteps(i, done int32, ds map[int32]bool) int32 {
-	if _, ok := ds[i]; ok {
-		return done
+func (b *Bot) isCleanNow(mDust map[int32]map[int32]bool) bool {
+	if lDust, ok := mDust[b.line]; ok {
+		if _, ok := lDust[b.position]; ok {
+			b.action = "CLEAN"
+			return true
+		}
 	}
-
-	if i <= 0 || i >= (b.total-1) {
-		return 0
-	}
-
-	done++
-	if i < b.position {
-		return b.getSteps(i-1, done, ds)
-	}
-	return b.getSteps(i+1, done, ds)
+	return false
 }
 
-func (b Bot) isDustThere(l int32, mDust map[int32]map[int32]bool) bool {
-	if len(mDust[l]) > 0 {
-		return true
-	}
-
-	if l == 0 || l == b.total-1 {
-		return false
-	}
-	if l < b.line {
-		return b.isDustThere(l-1, mDust)
-	}
-	return b.isDustThere(l+1, mDust)
+func (d *Dust) set(l, p int32) {
+	d.line = l
+	d.position = p
 }
 
-func (b *Bot) positionate(line string) {
+func (b *Bot) setPosition(line string) {
 	words := strings.Fields(line)
 	l, err := strconv.Atoi(words[0])
 	if err != nil {
@@ -204,20 +143,14 @@ func (b *Bot) positionate(line string) {
 	}
 	b.line = int32(l)
 	b.position = int32(p)
-	b.positionated = true
 }
 
-func (b *Bot) setPriority() {
-	if b.line < (b.total / 2) {
-		b.priority = "DOWN"
-		return
+func findDust(line string) map[int32]bool {
+	ds := make(map[int32]bool)
+	for i, p := range line {
+		if p == 100 {
+			ds[int32(i)] = true
+		}
 	}
-	b.priority = "UP"
-}
-
-func (b *Bot) setTotal(line string) {
-	if b.total == 0 {
-		b.total = int32(len(line))
-		b.setPriority()
-	}
+	return ds
 }
