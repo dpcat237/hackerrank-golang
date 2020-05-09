@@ -9,12 +9,13 @@ This repository contains challenges of site [HackerRank](https://www.hackerrank.
 
 ### Artificial Intelligence
 
-| Subdomain    | Challenge                                                    | Level | Max Score | Score Obtained |
-| :----------- | :----------------------------------------------------------- | :---: | :-------: | :------------: |
-| Bot Building | [BotClean](https://github.com/dpcat237/hackerrank-golang/blob/master/Artificial%20Intelligence/Bot%20Building/bot-clean/main.go) | Easy  |   17.83   |     17.83      |
-| Bot Building | [BotClean Stochastic](https://github.com/dpcat237/hackerrank-golang/blob/master/Artificial%20Intelligence/Bot%20Building/bot-clean-stochastic/main.go) | Easy  |    10     |       10       |
-| Bot Building | [BotClean Large](https://github.com/dpcat237/hackerrank-golang/blob/master/Artificial%20Intelligence/Bot%20Building/bot-clean-large/main.go) | Hard  |   56.40   |     54.70      |
-| Bot Building | [Bot saves princess](https://github.com/dpcat237/hackerrank-golang/blob/master/Artificial%20Intelligence/Bot%20Building/bot-saves-princess/main.go) | Easy  |   13.9    |      13.9      |
+| Subdomain                       | Challenge                                                    | Level | Max Score | Score Obtained |
+| :------------------------------ | :----------------------------------------------------------- | :---: | :-------: | :------------: |
+| Bot Building                    | [BotClean](https://github.com/dpcat237/hackerrank-golang/blob/master/Artificial%20Intelligence/Bot%20Building/bot-clean/main.go) | Easy  |   17.83   |     17.83      |
+| Bot Building                    | [BotClean Stochastic](https://github.com/dpcat237/hackerrank-golang/blob/master/Artificial%20Intelligence/Bot%20Building/bot-clean-stochastic/main.go) | Easy  |    10     |       10       |
+| Bot Building                    | [BotClean Large](https://github.com/dpcat237/hackerrank-golang/blob/master/Artificial%20Intelligence/Bot%20Building/bot-clean-large/main.go) | Hard  |   56.40   |     54.70      |
+| Bot Building                    | [Bot saves princess](https://github.com/dpcat237/hackerrank-golang/blob/master/Artificial%20Intelligence/Bot%20Building/bot-saves-princess/main.go) | Easy  |   13.9    |      13.9      |
+| Statistics and Machine Learning | [Matching Questions with their Answers](https://github.com/dpcat237/hackerrank-golang/blob/master/Artificial%20Intelligence/Statistics%20and%20Machine%20Learning/Matching%20Questions%20with%20their%20Answers/main.go)                        | Hard  |    50     |       26       |
 
 
 
