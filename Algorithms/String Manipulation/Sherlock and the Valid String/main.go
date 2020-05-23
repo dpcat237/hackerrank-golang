@@ -65,7 +65,7 @@ func toNumArray(numsStr string) []uint64 {
 }
 
 func mergeSort(arr []uint64) []uint64 {
-	if len(arr) == 1 {
+	if len(arr) <= 1 {
 		return arr
 	}
 
@@ -88,8 +88,12 @@ func mergeSort(arr []uint64) []uint64 {
 		j++
 	}
 
-	rst = append(rst, l[i:]...)
-	rst = append(rst, r[j:]...)
+	if i < uint64(len(l)) {
+		rst = append(rst, l[i:]...)
+	}
+	if j < uint64(len(r)) {
+		rst = append(rst, r[j:]...)
+	}
 
 	return rst
 }
