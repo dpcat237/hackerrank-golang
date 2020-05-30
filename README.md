@@ -17,6 +17,7 @@ This repository contains challenges of site [HackerRank](https://www.hackerrank.
 | Dictionaries and Hashmaps | [Frequency Queries](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Dictionaries%20and%20Hashmaps/Frequency%20Queries/main.go) |  Medium  |    40     |       40       |
 | Dictionaries and Hashmaps | [Hash Tables: Ransom Note](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Dictionaries%20and%20Hashmaps/Hash%20Tables%20Ransom%20Notes/main.go) |  Easy  |    25     |       25       |
 | Dictionaries and Hashmaps | [Two Strings](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Dictionaries%20and%20Hashmaps/Two%20Strings/main.go) |  Easy  |    25     |       25       |
+| Graph                     | [Roads and Libraries](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Graphs/Roads%20and%20Libraries/main.go) |  Medium  |    30     |       30       |
 | Search                    | [Maximum Subarray Sum](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Search/Maximum%20Subarray%20Sum/main.go) |  Hard  |    65     |       65       |
 | Search                    | [Pairs](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Search/Pairs/main.go) |  Hard  |    50     |       50       |
 | Sorting                   | [Bubble Sort](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Sorting/Bubble%20Sort/main.go) |  Easy  |    30     |       30       |
@@ -40,3 +41,8 @@ This repository contains challenges of site [HackerRank](https://www.hackerrank.
 | Bot Building                    | [Bot saves princess](https://github.com/dpcat237/hackerrank-golang/blob/master/Artificial%20Intelligence/Bot%20Building/bot-saves-princess/main.go) | Easy  |   13.9    |      13.9      |
 | Statistics and Machine Learning | [Matching Questions with their Answers](https://github.com/dpcat237/hackerrank-golang/blob/master/Artificial%20Intelligence/Statistics%20and%20Machine%20Learning/Matching%20Questions%20with%20their%20Answers/main.go)                        | Hard  |    50     |       26       |
 
+### SQL
+
+| Challenge                                                    | Level | Max Score | Score Obtained |
+| :----------------------------------------------------------- | :---: | :-------: | :------------: |
+| [Weather Observation Station 5](https://github.com/dpcat237/hackerrank-golang/blob/master/Artificial%20Intelligence/Bot%20Building/bot-clean/main.go) | Easy  |   15   |     15      |
