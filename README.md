@@ -45,4 +45,4 @@ This repository contains challenges of site [HackerRank](https://www.hackerrank.
 
 | Challenge                                                    | Level | Max Score | Score Obtained |
 | :----------------------------------------------------------- | :---: | :-------: | :------------: |
-| [Weather Observation Station 5](https://github.com/dpcat237/hackerrank-golang/blob/master/Artificial%20Intelligence/Bot%20Building/bot-clean/main.go) | Easy  |   15   |     15      |
+| [Weather Observation Station 5](https://github.com/dpcat237/hackerrank-golang/blob/master/SQL/Weather%20Observation%20Station%205/query.sql) | Easy  |   15   |     15      |
