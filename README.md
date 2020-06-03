@@ -19,6 +19,7 @@ This repository contains challenges of site [HackerRank](https://www.hackerrank.
 | Dictionaries and Hashmaps  | [Two Strings](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Dictionaries%20and%20Hashmaps/Two%20Strings/main.go) |  Easy  |    25     |       25       |
 | Graph                      | [Find the nearest clone](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Graphs/Find%20the%20nearest%20clone/main.go) |  Medium  |    45     |       45       |
 | Graph                      | [Roads and Libraries](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Graphs/Roads%20and%20Libraries/main.go) |  Medium  |    30     |       30       |
+| Greedy Algorithms          | [Max Min](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Greedy%20Algorithms/Max%20Min/main.go) |  Medium  |    35     |       35       |
 | Recursion and Backtracking | [Recursive Digit Sum](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Recursion%20and%20Backtracking/Recursive%20Digit%20Sum/main.go) |  Medium  |    30     |       30       |
 | Search                     | [Maximum Subarray Sum](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Search/Maximum%20Subarray%20Sum/main.go) |  Hard  |    65     |       65       |
 | Search                     | [Pairs](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Search/Pairs/main.go) |  Hard  |    50     |       50       |
