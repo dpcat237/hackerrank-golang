@@ -13,6 +13,7 @@ This repository contains challenges of site [HackerRank](https://www.hackerrank.
 | :------------------------- | :----------------------------------------------------------- | :----: | :-------: | :------------: |
 | Arrays                     | [2D Array - DS](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Arrays/2D%20Array%20DS/main.go) |  Easy  |    15     |       15       |
 | Arrays                     | [Arrays: Left Rotation](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Arrays/Arrays%20Left%20Rotation/main.go) |  Easy  |    20     |       20       |
+| Arrays                     | [Array Manipulation](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Arrays/Array%20Manipulation/main.go) |  Hard  |    60     |       60       |
 | Arrays                     | [Minimum Swaps 2](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Arrays/Minimum%20Swaps%202/main.go) |  Medium  |    40     |       40       |
 | Arrays                     | [New Year Chaos](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Arrays/New%20Year%20Chaos/main.go) | Medium |    40     |       40       |
 | Dictionaries and Hashmaps  | [Frequency Queries](https://github.com/dpcat237/hackerrank-golang/blob/master/Algorithms/Dictionaries%20and%20Hashmaps/Frequency%20Queries/main.go) |  Medium  |    40     |       40       |
